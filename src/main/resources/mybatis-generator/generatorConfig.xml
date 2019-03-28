@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/ritchiehuang/.m2/repository/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection userId="root" password="445412" driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/StudentManagementSystem?useUnicode=true&amp;characterEncoding=utf8"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="bean" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="dao" type="XMLMAPPER"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="ADMIN_LOGIN_INFO" domainObjectName="AdminLoginBean"/>
+
+        <table schema="" tableName="STUDENT_LOGIN_INFO" domainObjectName="StudentLoginBean"/>
+
+        <table schema="" tableName="CLASS_INFO" domainObjectName="ClassInfoBean"/>
+
+        <table schema="" tableName="DEPARTMENT_INFO" domainObjectName="DepartmentInfoBean"/>
+
+        <table schema="" tableName="COURSE_INFO" domainObjectName="CourseInfoBean"/>
+
+        <table schema="" tableName="MAJOR_INFO" domainObjectName="MajorInfoBean"/>
+
+        <table tableName="STUDENT_INFO" domainObjectName="StudentInfoBean"/>
+    </context>
+</generatorConfiguration>

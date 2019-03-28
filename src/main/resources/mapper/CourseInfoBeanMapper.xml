@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.CourseInfoBeanMapper">
+  <resultMap id="BaseResultMap" type="bean.CourseInfoBean">
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="c_type" jdbcType="VARCHAR" property="cType" />
+    <result column="c_credits" jdbcType="VARCHAR" property="cCredits" />
+    <result column="c_teacher" jdbcType="INTEGER" property="cTeacher" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_name, c_type, c_credits, c_teacher
+  </sql>
+  <select id="selectByExample" parameterType="bean.CourseInfoBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COURSE_INFO
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from COURSE_INFO
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="bean.CourseInfoBeanExample">
+    delete from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="bean.CourseInfoBean">
+    insert into COURSE_INFO (c_id, c_name, c_type, 
+      c_credits, c_teacher)
+    values (#{cId,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{cType,jdbcType=VARCHAR}, 
+      #{cCredits,jdbcType=VARCHAR}, #{cTeacher,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="bean.CourseInfoBean">
+    insert into COURSE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="cType != null">
+        c_type,
+      </if>
+      <if test="cCredits != null">
+        c_credits,
+      </if>
+      <if test="cTeacher != null">
+        c_teacher,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null">
+        #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="cCredits != null">
+        #{cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacher != null">
+        #{cTeacher,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="bean.CourseInfoBeanExample" resultType="java.lang.Long">
+    select count(*) from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update COURSE_INFO
+    <set>
+      <if test="record.cId != null">
+        c_id = #{record.cId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cName != null">
+        c_name = #{record.cName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cType != null">
+        c_type = #{record.cType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCredits != null">
+        c_credits = #{record.cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTeacher != null">
+        c_teacher = #{record.cTeacher,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update COURSE_INFO
+    set c_id = #{record.cId,jdbcType=INTEGER},
+      c_name = #{record.cName,jdbcType=VARCHAR},
+      c_type = #{record.cType,jdbcType=VARCHAR},
+      c_credits = #{record.cCredits,jdbcType=VARCHAR},
+      c_teacher = #{record.cTeacher,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="bean.CourseInfoBean">
+    update COURSE_INFO
+    <set>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null">
+        c_type = #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="cCredits != null">
+        c_credits = #{cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacher != null">
+        c_teacher = #{cTeacher,jdbcType=INTEGER},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="bean.CourseInfoBean">
+    update COURSE_INFO
+    set c_name = #{cName,jdbcType=VARCHAR},
+      c_type = #{cType,jdbcType=VARCHAR},
+      c_credits = #{cCredits,jdbcType=VARCHAR},
+      c_teacher = #{cTeacher,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="bean.CourseInfoBean">
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="c_type" jdbcType="VARCHAR" property="cType" />
+    <result column="c_credits" jdbcType="VARCHAR" property="cCredits" />
+    <result column="c_teacher" jdbcType="INTEGER" property="cTeacher" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_name, c_type, c_credits, c_teacher
+  </sql>
+  <select id="selectByExample" parameterType="bean.CourseInfoBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COURSE_INFO
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from COURSE_INFO
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="bean.CourseInfoBeanExample">
+    delete from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="bean.CourseInfoBean">
+    insert into COURSE_INFO (c_id, c_name, c_type, 
+      c_credits, c_teacher)
+    values (#{cId,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{cType,jdbcType=VARCHAR}, 
+      #{cCredits,jdbcType=VARCHAR}, #{cTeacher,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="bean.CourseInfoBean">
+    insert into COURSE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="cType != null">
+        c_type,
+      </if>
+      <if test="cCredits != null">
+        c_credits,
+      </if>
+      <if test="cTeacher != null">
+        c_teacher,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null">
+        #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="cCredits != null">
+        #{cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacher != null">
+        #{cTeacher,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="bean.CourseInfoBeanExample" resultType="java.lang.Long">
+    select count(*) from COURSE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update COURSE_INFO
+    <set>
+      <if test="record.cId != null">
+        c_id = #{record.cId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cName != null">
+        c_name = #{record.cName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cType != null">
+        c_type = #{record.cType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCredits != null">
+        c_credits = #{record.cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTeacher != null">
+        c_teacher = #{record.cTeacher,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update COURSE_INFO
+    set c_id = #{record.cId,jdbcType=INTEGER},
+      c_name = #{record.cName,jdbcType=VARCHAR},
+      c_type = #{record.cType,jdbcType=VARCHAR},
+      c_credits = #{record.cCredits,jdbcType=VARCHAR},
+      c_teacher = #{record.cTeacher,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="bean.CourseInfoBean">
+    update COURSE_INFO
+    <set>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cType != null">
+        c_type = #{cType,jdbcType=VARCHAR},
+      </if>
+      <if test="cCredits != null">
+        c_credits = #{cCredits,jdbcType=VARCHAR},
+      </if>
+      <if test="cTeacher != null">
+        c_teacher = #{cTeacher,jdbcType=INTEGER},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="bean.CourseInfoBean">
+    update COURSE_INFO
+    set c_name = #{cName,jdbcType=VARCHAR},
+      c_type = #{cType,jdbcType=VARCHAR},
+      c_credits = #{cCredits,jdbcType=VARCHAR},
+      c_teacher = #{cTeacher,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+</mapper>

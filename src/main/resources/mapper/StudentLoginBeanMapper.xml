@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.StudentLoginBeanMapper">
+  <resultMap id="BaseResultMap" type="bean.StudentLoginBean">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_account" jdbcType="VARCHAR" property="uAccount" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    u_id, u_account, u_password
+  </sql>
+  <select id="selectByExample" parameterType="bean.StudentLoginBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STUDENT_LOGIN_INFO
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from STUDENT_LOGIN_INFO
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="bean.StudentLoginBeanExample">
+    delete from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="bean.StudentLoginBean">
+    insert into STUDENT_LOGIN_INFO (u_id, u_account, u_password
+      )
+    values (#{uId,jdbcType=INTEGER}, #{uAccount,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="bean.StudentLoginBean">
+    insert into STUDENT_LOGIN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="uAccount != null">
+        u_account,
+      </if>
+      <if test="uPassword != null">
+        u_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uAccount != null">
+        #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="bean.StudentLoginBeanExample" resultType="java.lang.Long">
+    select count(*) from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update STUDENT_LOGIN_INFO
+    <set>
+      <if test="record.uId != null">
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uAccount != null">
+        u_account = #{record.uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uPassword != null">
+        u_password = #{record.uPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update STUDENT_LOGIN_INFO
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      u_account = #{record.uAccount,jdbcType=VARCHAR},
+      u_password = #{record.uPassword,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="bean.StudentLoginBean">
+    update STUDENT_LOGIN_INFO
+    <set>
+      <if test="uAccount != null">
+        u_account = #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="bean.StudentLoginBean">
+    update STUDENT_LOGIN_INFO
+    set u_account = #{uAccount,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="bean.StudentLoginBean">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_account" jdbcType="VARCHAR" property="uAccount" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    u_id, u_account, u_password
+  </sql>
+  <select id="selectByExample" parameterType="bean.StudentLoginBeanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STUDENT_LOGIN_INFO
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from STUDENT_LOGIN_INFO
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="bean.StudentLoginBeanExample">
+    delete from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="bean.StudentLoginBean">
+    insert into STUDENT_LOGIN_INFO (u_id, u_account, u_password
+      )
+    values (#{uId,jdbcType=INTEGER}, #{uAccount,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="bean.StudentLoginBean">
+    insert into STUDENT_LOGIN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="uAccount != null">
+        u_account,
+      </if>
+      <if test="uPassword != null">
+        u_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="uAccount != null">
+        #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="bean.StudentLoginBeanExample" resultType="java.lang.Long">
+    select count(*) from STUDENT_LOGIN_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update STUDENT_LOGIN_INFO
+    <set>
+      <if test="record.uId != null">
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uAccount != null">
+        u_account = #{record.uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uPassword != null">
+        u_password = #{record.uPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update STUDENT_LOGIN_INFO
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      u_account = #{record.uAccount,jdbcType=VARCHAR},
+      u_password = #{record.uPassword,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="bean.StudentLoginBean">
+    update STUDENT_LOGIN_INFO
+    <set>
+      <if test="uAccount != null">
+        u_account = #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="bean.StudentLoginBean">
+    update STUDENT_LOGIN_INFO
+    set u_account = #{uAccount,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>
