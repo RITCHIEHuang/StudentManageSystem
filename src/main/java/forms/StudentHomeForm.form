@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="forms.StudentHomeForm">
+  <grid id="27dc6" binding="mPanel1" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="692" height="400"/>
+    </constraints>
+    <properties>
+      <foreground color="-13815744"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="44374" class="javax.swing.JLabel" binding="infoLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="600" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="18"/>
+          <foreground color="-16414660"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <text value="欢迎你"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="1"/>
+        </properties>
+      </component>
+      <tabbedpane id="86c78" binding="mTabbedPane1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="900" height="600"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="14"/>
+          <tabLayoutPolicy value="0"/>
+          <tabPlacement value="1"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="6a611" binding="StudentInfoPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="个人信息查询"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="258b5" binding="GradeManagePanel" layout-manager="CardLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="成绩信息"/>
+            </constraints>
+            <properties>
+              <foreground color="-14869219"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="b7d39" binding="WarnPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="个人信息录入"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="2f867" binding="StatusInfoPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="学籍信息"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="275fa" binding="CourseManagePanel" layout-manager="CardLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="选课信息"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+      <vspacer id="890a3">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="15"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="eb681" class="javax.swing.JButton" binding="mExitButton">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="100" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font size="12"/>
+          <text value="退出"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

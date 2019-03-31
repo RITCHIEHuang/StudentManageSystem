@@ -1,33 +1,33 @@
 package bean;
 
 public class ClassInfoBean {
-    private Integer classId;
+    private Integer class_id;
 
-    private Integer majorId;
+    private Integer major_id;
 
-    private String className;
+    private String class_name;
 
     public Integer getClassId() {
-        return classId;
+        return class_id;
     }
 
     public void setClassId(Integer classId) {
-        this.classId = classId;
+        this.class_id = classId;
     }
 
     public Integer getMajorId() {
-        return majorId;
+        return major_id;
     }
 
     public void setMajorId(Integer majorId) {
-        this.majorId = majorId;
+        this.major_id = majorId;
     }
 
     public String getClassName() {
-        return className;
+        return class_name;
     }
 
     public void setClassName(String className) {
-        this.className = className == null ? null : className.trim();
+        this.class_name = className == null ? null : className.trim();
     }
 }

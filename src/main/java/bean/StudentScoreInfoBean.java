@@ -3,9 +3,9 @@ package bean;
 public class StudentScoreInfoBean {
     private Integer id;
 
-    private Integer sId;
+    private Integer s_id;
 
-    private Integer courseId;
+    private Integer course_id;
 
     private String score;
 
@@ -18,19 +18,19 @@ public class StudentScoreInfoBean {
     }
 
     public Integer getsId() {
-        return sId;
+        return s_id;
     }
 
     public void setsId(Integer sId) {
-        this.sId = sId;
+        this.s_id = sId;
     }
 
     public Integer getCourseId() {
-        return courseId;
+        return course_id;
     }
 
     public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
+        this.course_id = courseId;
     }
 
     public String getScore() {

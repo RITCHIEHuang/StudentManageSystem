@@ -1,6 +1,7 @@
 package utils;
 
 import bean.AdminLoginBean;
+import bean.StudentInfoBean;
 import bean.StudentLoginBean;
 
 import java.util.ArrayList;
@@ -25,7 +26,14 @@ public class LoginUtils {
             try {
                 StudentLoginBean bean = mJDBCUtils.findSimpleRefResult(sql, params, StudentLoginBean.class);
                 if (bean != null) {
-                    Constants.loginUser = bean;
+                    String account = bean.getuAccount();
+                    List<Object> mparams = new ArrayList<Object>();
+                    mparams.add(account);
+                    String msql = "select * from STUDENT_INFO where s_account = ?";
+                    StudentInfoBean sinfo = mJDBCUtils.findSimpleRefResult(msql, mparams, StudentInfoBean.class);
+                    if(sinfo != null){
+                        Constants.loginUser = sinfo;
+                    }
                     res = "登录成功";
                 }
             } catch (Exception e) {

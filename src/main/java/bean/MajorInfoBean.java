@@ -1,33 +1,33 @@
 package bean;
 
 public class MajorInfoBean {
-    private Integer mId;
+    private Integer m_id;
 
-    private Integer departmentId;
+    private Integer department_id;
 
-    private String mName;
+    private String m_name;
 
     public Integer getmId() {
-        return mId;
+        return m_id;
     }
 
     public void setmId(Integer mId) {
-        this.mId = mId;
+        this.m_id = mId;
     }
 
     public Integer getDepartmentId() {
-        return departmentId;
+        return department_id;
     }
 
     public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
+        this.department_id = departmentId;
     }
 
     public String getmName() {
-        return mName;
+        return m_name;
     }
 
     public void setmName(String mName) {
-        this.mName = mName == null ? null : mName.trim();
+        this.m_name = mName == null ? null : mName.trim();
     }
 }

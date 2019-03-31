@@ -1,23 +1,23 @@
 package bean;
 
 public class StudentRecordsInfoBean {
-    private Integer rId;
+    private Integer r_id;
 
-    private String rStatus;
+    private String r_status;
 
     public Integer getrId() {
-        return rId;
+        return r_id;
     }
 
     public void setrId(Integer rId) {
-        this.rId = rId;
+        this.r_id = rId;
     }
 
     public String getrStatus() {
-        return rStatus;
+        return r_status;
     }
 
     public void setrStatus(String rStatus) {
-        this.rStatus = rStatus == null ? null : rStatus.trim();
+        this.r_status = rStatus == null ? null : rStatus.trim();
     }
 }

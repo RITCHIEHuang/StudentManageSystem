@@ -1,33 +1,33 @@
 package bean;
 
 public class TeacherInfoBean {
-    private Integer tId;
+    private Integer t_id;
 
-    private String tName;
+    private String t_name;
 
-    private String tPhone;
+    private String t_phone;
 
     public Integer gettId() {
-        return tId;
+        return t_id;
     }
 
     public void settId(Integer tId) {
-        this.tId = tId;
+        this.t_id = tId;
     }
 
     public String gettName() {
-        return tName;
+        return t_name;
     }
 
     public void settName(String tName) {
-        this.tName = tName == null ? null : tName.trim();
+        this.t_name = tName == null ? null : tName.trim();
     }
 
     public String gettPhone() {
-        return tPhone;
+        return t_phone;
     }
 
     public void settPhone(String tPhone) {
-        this.tPhone = tPhone == null ? null : tPhone.trim();
+        this.t_phone = tPhone == null ? null : tPhone.trim();
     }
 }

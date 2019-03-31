@@ -120,7 +120,7 @@ public class JDBCUtils {
      * @return
      * @throws SQLException
      */
-    public List<Map<String, Object>> findModeResult(String sql, List<Object> params) throws SQLException {
+    public List<Map<String, Object>> findMoreResult(String sql, List<Object> params) throws SQLException {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         int index = 1;
         preparedStatement = connection.prepareStatement(sql);

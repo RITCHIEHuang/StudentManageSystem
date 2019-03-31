@@ -1,53 +1,53 @@
 package bean;
 
 public class CourseInfoBean {
-    private Integer cId;
+    private Integer c_id;
 
-    private String cName;
+    private String c_name;
 
-    private String cType;
+    private String c_type;
 
-    private String cCredits;
+    private String c_credits;
 
-    private Integer cTeacher;
+    private Integer c_teacher;
 
     public Integer getcId() {
-        return cId;
+        return c_id;
     }
 
     public void setcId(Integer cId) {
-        this.cId = cId;
+        this.c_id = cId;
     }
 
     public String getcName() {
-        return cName;
+        return c_name;
     }
 
     public void setcName(String cName) {
-        this.cName = cName == null ? null : cName.trim();
+        this.c_name = cName == null ? null : cName.trim();
     }
 
     public String getcType() {
-        return cType;
+        return c_type;
     }
 
     public void setcType(String cType) {
-        this.cType = cType == null ? null : cType.trim();
+        this.c_type = cType == null ? null : cType.trim();
     }
 
     public String getcCredits() {
-        return cCredits;
+        return c_credits;
     }
 
     public void setcCredits(String cCredits) {
-        this.cCredits = cCredits == null ? null : cCredits.trim();
+        this.c_credits = cCredits == null ? null : cCredits.trim();
     }
 
     public Integer getcTeacher() {
-        return cTeacher;
+        return c_teacher;
     }
 
     public void setcTeacher(Integer cTeacher) {
-        this.cTeacher = cTeacher;
+        this.c_teacher = cTeacher;
     }
 }

@@ -1,23 +1,23 @@
 package bean;
 
 public class DepartmentInfoBean {
-    private Integer dId;
+    private Integer d_id;
 
-    private String dName;
+    private String d_name;
 
     public Integer getdId() {
-        return dId;
+        return d_id;
     }
 
     public void setdId(Integer dId) {
-        this.dId = dId;
+        this.d_id = dId;
     }
 
     public String getdName() {
-        return dName;
+        return d_name;
     }
 
     public void setdName(String dName) {
-        this.dName = dName == null ? null : dName.trim();
+        this.d_name = dName == null ? null : dName.trim();
     }
 }

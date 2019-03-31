@@ -1,33 +1,33 @@
 package bean;
 
 public class StudentLoginBean {
-    private Integer uId;
+    private Integer u_id;
 
-    private String uAccount;
+    private String u_account;
 
-    private String uPassword;
+    private String u_password;
 
     public Integer getuId() {
-        return uId;
+        return u_id;
     }
 
     public void setuId(Integer uId) {
-        this.uId = uId;
+        this.u_id = uId;
     }
 
     public String getuAccount() {
-        return uAccount;
+        return u_account;
     }
 
     public void setuAccount(String uAccount) {
-        this.uAccount = uAccount == null ? null : uAccount.trim();
+        this.u_account = uAccount == null ? null : uAccount.trim();
     }
 
     public String getuPassword() {
-        return uPassword;
+        return u_password;
     }
 
     public void setuPassword(String uPassword) {
-        this.uPassword = uPassword == null ? null : uPassword.trim();
+        this.u_password = uPassword == null ? null : uPassword.trim();
     }
 }
