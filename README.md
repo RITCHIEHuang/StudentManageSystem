@@ -8,7 +8,7 @@
 - 数据表见[StudentManageSystem.sql][1]
 
 
-[1]: https://github.com/RITCHIEHuang/StudentManagementSystem/blob/master/databases/StudentManagementSystem.sql
+[1]: https://github.com/RITCHIEHuang/StudentManageSystem/tree/master/SQL/StudentManagementSystem.sql
 
 
 
