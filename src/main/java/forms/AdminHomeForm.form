@@ -46,12 +46,21 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="21cf4" class="javax.swing.JTable" binding="mStudentTable">
+              <scrollpane id="97e65">
                 <constraints>
-                  <card name="Card1"/>
+                  <card name="Card2"/>
                 </constraints>
                 <properties/>
-              </component>
+                <border type="none"/>
+                <children>
+                  <component id="21cf4" class="javax.swing.JTable" binding="mStudentTable">
+                    <constraints/>
+                    <properties>
+                      <font size="14"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
           <grid id="258b5" binding="GradeManagePanel" layout-manager="CardLayout" hgap="0" vgap="0">
@@ -79,6 +88,50 @@
             <properties/>
             <border type="none"/>
             <children/>
+          </grid>
+          <grid id="61115" binding="ApplicationPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="学生申请"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="19570" class="javax.swing.JButton" binding="m驳回Button" default-binding="true">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="驳回"/>
+                </properties>
+              </component>
+              <component id="8fd5e" class="javax.swing.JButton" binding="m通过Button" default-binding="true">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="通过"/>
+                </properties>
+              </component>
+              <scrollpane id="c4955">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="3ca3c" class="javax.swing.JTable" binding="mTable1" default-binding="true">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <hspacer id="3d8ec">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
           </grid>
         </children>
       </tabbedpane>

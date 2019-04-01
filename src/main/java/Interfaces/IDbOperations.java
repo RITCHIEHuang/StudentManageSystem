@@ -1,14 +1,13 @@
 package Interfaces;
 
+import javax.naming.event.ObjectChangeListener;
 import java.util.List;
 import java.util.Map;
 
 public interface IDbOperations<T> {
-    boolean updateItem(String sql, Map<String, Object> item);
+    boolean updateItem(String sql, List<Object> params);
 
-    boolean addItem(String sql, T entity);
-
-    boolean addItem(String sql, Map<String, Object> map);
+    boolean addItem(String sql, List<Object> params);
 
     boolean deleteItemById(String sql, List<Object> params);
 

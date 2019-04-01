@@ -2,6 +2,7 @@ package forms;
 
 import bean.AdminLoginBean;
 import bean.StudentInfoBean;
+import model.StudentModel;
 import utils.Constants;
 
 import javax.swing.*;
@@ -20,9 +21,16 @@ public class AdminHomeForm {
     private JPanel CourseManagePanel;
     private JButton mExitButton;
     private JTable mStudentTable;
+    private JPanel ApplicationPanel;
+    private JButton m驳回Button;
+    private JButton m通过Button;
+    private JTable mTable1;
 
     AdminHomeForm() {
         createUI();
+
+
+        mStudentTable.setModel(new StudentModel());
     }
 
     private void createUI() {
@@ -41,6 +49,5 @@ public class AdminHomeForm {
 
 
     }
-
 
 }

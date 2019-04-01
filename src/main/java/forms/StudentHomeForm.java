@@ -20,6 +20,22 @@ public class StudentHomeForm {
     private JLabel infoLabel;
     private JButton mExitButton;
     private JPanel StatusInfoPanel;
+    private JTextField mTextField7;
+    private JTextField mTextField9;
+    private JTextField mTextField1;
+    private JTextField mTextField2;
+    private JTextField mTextField3;
+    private JTextField mTextField4;
+    private JTextField mTextField5;
+    private JTextField mTextField6;
+    private JTextField mTextField8;
+    private JTextField mTextField11;
+    private JTextField mTextField12;
+    private JTextField mTextField13;
+    private JTextField mTextField10;
+    private JButton m修改Button;
+    private JButton m提交Button;
+    private JComboBox mComboBox1;
 
 
     public StudentHomeForm() {
